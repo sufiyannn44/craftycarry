@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>All Products - Crafty Carry</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="../style.css">
+<style>
+body {
+  background: var(--bg-color);
+  padding-top: 100px;
+}
+
+/* TOPBAR */
+.topbar {
+  width: 100%;
+  padding: 15px 5%;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+}
+
+.topbar .logo {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--secondary-color);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.topbar .logo i {
+  color: var(--accent-color);
+}
+
+.back {
+  text-decoration: none;
+  color: var(--primary-color);
+  border: 2px solid var(--gray-light);
+  padding: 10px 25px;
+  border-radius: 30px;
+  font-weight: 600;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--white);
+}
+
+.back:hover {
+  background: var(--secondary-color);
+  color: var(--white);
+  border-color: var(--secondary-color);
+  box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
+}
+
+.header-title {
+  text-align: center;
+  margin-bottom: 50px;
+  padding: 0 5%;
+}
+
+.header-title h1 {
+  font-size: 48px;
+  color: var(--primary-color);
+  font-weight: 800;
+  text-transform: capitalize;
+  margin-bottom: 15px;
+}
+
+.header-title p {
+  color: var(--gray-text);
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 5% 100px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- TOP -->
+<div class="topbar">
+  <a href="../index.html" class="logo">
+    <i class="fas fa-shopping-bag"></i> Crafty Carry
+  </a>
+  <a href="../index.html" class="back">
+    <i class="fas fa-arrow-left"></i> Back to Store
+  </a>
+</div>
+
+<div class="header-title">
+  <h1 id="page-title">Explore Our Collection</h1>
+  <p>Premium quality handcrafted bags.</p>
+</div>
+
+<div class="products" id="products"></div>
+
+<script>
+// CATEGORY
+const urlParams = new URLSearchParams(window.location.search);
+let category = urlParams.get("category");
+
+if (!category) {
+  try {
+    category = localStorage.getItem("selectedCategory");
+  } catch(e) {}
+}
+
+if(category) {
+  // Format title: uppercase first letter
+  const formattedCategory = category.charAt(0).toUpperCase() + category.slice(1);
+  document.getElementById("page-title").innerText = formattedCategory + " Bags";
+}
+
+// PRODUCTS
+const allProducts = {
+  tote:[
+    {name:"Classic Tote", image:"images/1.jpg", price:"600"},
+    {name:"Eco Tote", image:"images/2.jpg", price:"700"},
+    {name:"Premium Tote", image:"images/3.jpg", price:"900"}
+  ],
+  hamper:[
+    {name:"Luxury Hamper", image:"images/4.jpg", price:"650"},
+    {name:"Gift Hamper", image:"images/5.jpg", price:"750"},
+    {name:"Premium Hamper", image:"images/6.jpg", price:"900"}
+  ],
+  bottle:[
+    {name:"Classic Bottle", image:"images/bag1.jpg", price:"400"},
+    {name:"Travel Bottle", image:"images/bag2.jpg", price:"550"},
+    {name:"Premium Bottle", image:"images/bag3.jpg", price:"700"}
+  ],
+  custom:[
+    {name:"Printed Custom", image:"images/bag1.jpg", price:"800"},
+    {name:"Logo Custom", image:"images/bag2.jpg", price:"900"},
+    {name:"Premium Custom", image:"images/bag3.jpg", price:"1200"}
+  ],
+  potli:[
+    {name:"Traditional Potli", image:"images/1.jpg", price:"500"},
+    {name:"Designer Potli", image:"images/2.jpg", price:"700"},
+    {name:"Wedding Potli", image:"images/3.jpg", price:"950"}
+  ],
+  kids:[
+    {name:"Cartoon Bag", image:"images/4.jpg", price:"400"},
+    {name:"School Bag", image:"images/5.jpg", price:"600"},
+    {name:"Premium Kids", image:"images/6.jpg", price:"800"}
+  ]
+};
+
+// CONTAINER
+const container = document.getElementById("products");
+
+// GET CURRENT CATEGORY PRODUCTS
+const products = allProducts[category] || allProducts['tote']; // fallback to tote
+
+// CREATE CARDS
+for(let i=0; i<20; i++){
+  const product = products[i % products.length];
+  // Add some visual flair: Bestseller / New tags randomly
+  const badgeHtml = (i % 5 === 0) ? `<div class="card-badge">Bestseller</div>` : ((i % 7 === 0) ? `<div class="card-badge" style="background:var(--secondary-color)">New</div>` : '');
+
+  // Fix image path for display in /pages/ directory
+  const displayImage = "../" + product.image;
+
+  container.innerHTML += `
+    <div class="card" onclick="openProduct('${product.name}', '${product.image}', '${product.price}')">
+      ${badgeHtml}
+      <div class="img-wrapper">
+        <img src="${displayImage}" alt="${product.name}" onerror="this.src='../images/1.jpg'">
+      </div>
+      <div class="card-content">
+        <h3>${product.name}</h3>
+        <p class="price">₹${product.price} <span>/ piece</span></p>
+        <button>CHOOSE OPTIONS</button>
+      </div>
+    </div>
+  `;
+}
+
+// OPEN PRODUCT PAGE
+function openProduct(name, image, price){
+  window.location.href = `product.html?name=${encodeURIComponent(name)}&image=${encodeURIComponent(image)}&price=${encodeURIComponent(price)}`;
+}
+</script>
+
+</body>
+</html>
