@@ -1,31 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Crafty Carry - Premium Handcrafted Bags</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link rel="stylesheet" href="style.css">
-</head>
+const fs = require('fs');
+const path = require('path');
 
-<body>
+const indexHtmlPath = path.join(__dirname, 'index.html');
+const allProductsHtmlPath = path.join(__dirname, 'pages', 'allproducts.html');
 
-<!-- LOADER -->
-<div id="loader">
-  <h1>Welcome to Craft Carry</h1>
-</div>
+let indexHtml = fs.readFileSync(indexHtmlPath, 'utf8');
 
-<!-- HEADER -->
-<header>
-  <a href="#" class="logo">
-    <img src="logo/logo1.jpeg" alt="Crafty Carry Logo"> Crafty Carry
-  </a>
-
-  <div class="menu-toggle" id="mobile-menu">
-    <i class="fas fa-bars"></i>
-  </div>
-
-  <nav id="nav-menu">
+// 1. Update Navigation
+indexHtml = indexHtml.replace(
+  /<nav id="nav-menu">[\s\S]*?<\/nav>/,
+  `<nav id="nav-menu">
     <a href="#jute-tote">Jute Tote bag</a>
     <a href="#cotton-tote">Cotton Tote bag</a>
     <a href="#window-hamper">Window hamper bag</a>
@@ -33,30 +17,17 @@
     <a href="#wedding-bag">wedding jute&cotton bags</a>
     <a href="#kids-bag">Kids jute&cotton bags</a>
     <a href="#plain-bag">Plain jute& cotton bags</a>
-  </nav>
+  </nav>`
+);
 
-</header>
+// 2. Update Hero Link
+indexHtml = indexHtml.replace(
+  /<a href="#tote" class="btn-shop">Explore Collection<\/a>/,
+  `<a href="#jute-tote" class="btn-shop">Explore Collection</a>`
+);
 
-<!-- HERO -->
-<section class="hero">
-  <video autoplay muted loop playsinline>
-    <source src="videos/bag.mp4" type="video/mp4">
-  </video>
-
-  <div class="overlay">
-    <h2>STYLE ON YOU</h2>
-    <h1>Carry Your<br>Confidence</h1>
-    <p>Lightweight, versatile, and made to complement your wardrobe.</p>
-    <a href="#jute-tote" class="btn-shop">Explore Collection</a>
-  </div>
-</section>
-
-<!-- COLLECTION SLIDER -->
-<section class="collections">
-  <h2>Shop by Category</h2>
-
-  <div class="slider-container" id="slider">
-        <div class="slide-track" id="track">
+// 3. Update Slider
+const newSlider = `    <div class="slide-track" id="track">
       <a href="#jute-tote" class="item-link">
         <div class="item">
           <div class="item-img-wrapper">
@@ -119,11 +90,12 @@
           <p>Plain Bags</p>
         </div>
       </a>
-    </div>
-  </div>
-</section>
+    </div>`;
+indexHtml = indexHtml.replace(/<div class="slide-track" id="track">[\s\S]*?<\/div>\s*<\/div>\s*<\/section>/, newSlider + '\n  </div>\n</section>');
 
-<!-- JUTE TOTE -->
+// 4. Update Sections
+const sectionsRegex = /<!-- TOTE -->[\s\S]*?<!-- FOOTER -->/;
+const newSections = `<!-- JUTE TOTE -->
 <section id="jute-tote" class="category">
   <h2>Jute Tote Bags</h2>
   <div class="products">
@@ -408,20 +380,13 @@
   </div>
 </section>
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-content">
-    <div class="footer-col">
-      <h4>Crafty Carry</h4>
-      <p>Premium handcrafted bags designed for elegance and durability. We specialize in custom branding, luxury gifting, and bulk corporate orders.</p>
-      <div class="social-links">
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-whatsapp"></i></a>
-      </div>
-    </div>
-    <div class="footer-col">
-      <h4>Quick Links</h4>
+<!-- FOOTER -->`;
+indexHtml = indexHtml.replace(sectionsRegex, newSections);
+
+// 5. Update Footer Quick Links
+indexHtml = indexHtml.replace(
+  /<h4>Quick Links<\/h4>[\s\S]*?<\/div>/,
+  `<h4>Quick Links</h4>
       <p><a href="#jute-tote">Jute Tote bag</a></p>
       <p><a href="#cotton-tote">Cotton Tote bag</a></p>
       <p><a href="#window-hamper">Window hamper bag</a></p>
@@ -429,23 +394,71 @@
       <p><a href="#wedding-bag">wedding jute&cotton bags</a></p>
       <p><a href="#kids-bag">Kids jute&cotton bags</a></p>
       <p><a href="#plain-bag">Plain jute& cotton bags</a></p>
-    </div>
-    <div class="footer-col">
-      <h4>Contact Us</h4>
-      <p><i class="fas fa-map-marker-alt"></i> A-98, st.no5, Gali Number 1, phase 2, Bhagirathi Vihar, New Mustafabad, New Delhi, India 110094</p>
-      <p><i class="fas fa-phone-alt"></i> +91 93157 48789</p>
-      <p><i class="fas fa-envelope"></i> craftycarry@gmail.com</p>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    &copy; 2026 Crafty Carry. All Rights Reserved.
-  </div>
-</footer>
+    </div>`
+);
 
-<!-- SCRIPT -->
-<script src="script.js"></script>
+fs.writeFileSync(indexHtmlPath, indexHtml);
 
+// --- UPDATE ALL PRODUCTS PAGE ---
 
+let allProductsHtml = fs.readFileSync(allProductsHtmlPath, 'utf8');
 
-</body>
-</html>
+const newAllProductsJS = `// PRODUCTS
+const allProducts = {
+  juteTote:[
+    {name:"Classic Jute Tote", image:"images/1.jpg", price:"600"},
+    {name:"Premium Jute Tote", image:"images/2.jpg", price:"700"},
+    {name:"Designer Jute Tote", image:"images/3.jpg", price:"900"}
+  ],
+  cottonTote:[
+    {name:"Classic Cotton Tote", image:"images/4.jpg", price:"650"},
+    {name:"Printed Cotton Tote", image:"images/5.jpg", price:"750"},
+    {name:"Premium Cotton Tote", image:"images/6.jpg", price:"900"}
+  ],
+  windowHamper:[
+    {name:"Classic Window Hamper", image:"images/1.jpg", price:"400"},
+    {name:"Gift Window Hamper", image:"images/2.jpg", price:"550"},
+    {name:"Premium Window Hamper", image:"images/3.jpg", price:"700"}
+  ],
+  bottleBag:[
+    {name:"Jute Bottle Bag", image:"images/4.jpg", price:"800"},
+    {name:"Cotton Bottle Bag", image:"images/5.jpg", price:"900"},
+    {name:"Premium Bottle Bag", image:"images/6.jpg", price:"1200"}
+  ],
+  weddingBag:[
+    {name:"Traditional Wedding Bag", image:"images/1.jpg", price:"500"},
+    {name:"Designer Wedding Bag", image:"images/2.jpg", price:"700"},
+    {name:"Premium Wedding Bag", image:"images/3.jpg", price:"950"}
+  ],
+  kidsBag:[
+    {name:"Cartoon Kids Bag", image:"images/4.jpg", price:"400"},
+    {name:"School Kids Bag", image:"images/5.jpg", price:"600"},
+    {name:"Premium Kids Bag", image:"images/6.jpg", price:"800"}
+  ],
+  plainBag:[
+    {name:"Basic Plain Bag", image:"images/1.jpg", price:"300"},
+    {name:"Standard Plain Bag", image:"images/2.jpg", price:"450"},
+    {name:"Premium Plain Bag", image:"images/3.jpg", price:"600"}
+  ]
+};
+
+// CONTAINER
+const container = document.getElementById("products");
+
+// GET CURRENT CATEGORY PRODUCTS
+const products = allProducts[category] || allProducts['juteTote']; // fallback to juteTote`;
+
+allProductsHtml = allProductsHtml.replace(/\/\/ PRODUCTS[\s\S]*?\/\/ fallback to tote/, newAllProductsJS);
+
+// Also fix the page title formatter to handle camelCase -> Normal Words if needed
+const newTitleLogic = `if(category) {
+  // Format title: add space before capital letters and uppercase first letter
+  const formattedCategory = category.replace(/([A-Z])/g, ' $1').replace(/^./, function(str){ return str.toUpperCase(); });
+  document.getElementById("page-title").innerText = formattedCategory + " Bags";
+}`;
+
+allProductsHtml = allProductsHtml.replace(/if\(category\) {[\s\S]*?}/, newTitleLogic);
+
+fs.writeFileSync(allProductsHtmlPath, allProductsHtml);
+
+console.log('Successfully updated categories!');

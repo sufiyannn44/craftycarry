@@ -123,42 +123,47 @@ if (!category) {
 }
 
 if(category) {
-  // Format title: uppercase first letter
-  const formattedCategory = category.charAt(0).toUpperCase() + category.slice(1);
+  // Format title: add space before capital letters and uppercase first letter
+  const formattedCategory = category.replace(/([A-Z])/g, ' $1').replace(/^./, function(str){ return str.toUpperCase(); });
   document.getElementById("page-title").innerText = formattedCategory + " Bags";
 }
 
 // PRODUCTS
 const allProducts = {
-  tote:[
-    {name:"Classic Tote", image:"images/1.jpg", price:"600"},
-    {name:"Eco Tote", image:"images/2.jpg", price:"700"},
-    {name:"Premium Tote", image:"images/3.jpg", price:"900"}
+  juteTote:[
+    {name:"Classic Jute Tote", image:"images/1.jpg", price:"600"},
+    {name:"Premium Jute Tote", image:"images/2.jpg", price:"700"},
+    {name:"Designer Jute Tote", image:"images/3.jpg", price:"900"}
   ],
-  hamper:[
-    {name:"Luxury Hamper", image:"images/4.jpg", price:"650"},
-    {name:"Gift Hamper", image:"images/5.jpg", price:"750"},
-    {name:"Premium Hamper", image:"images/6.jpg", price:"900"}
+  cottonTote:[
+    {name:"Classic Cotton Tote", image:"images/4.jpg", price:"650"},
+    {name:"Printed Cotton Tote", image:"images/5.jpg", price:"750"},
+    {name:"Premium Cotton Tote", image:"images/6.jpg", price:"900"}
   ],
-  bottle:[
-    {name:"Classic Bottle", image:"images/bag1.jpg", price:"400"},
-    {name:"Travel Bottle", image:"images/bag2.jpg", price:"550"},
-    {name:"Premium Bottle", image:"images/bag3.jpg", price:"700"}
+  windowHamper:[
+    {name:"Classic Window Hamper", image:"images/1.jpg", price:"400"},
+    {name:"Gift Window Hamper", image:"images/2.jpg", price:"550"},
+    {name:"Premium Window Hamper", image:"images/3.jpg", price:"700"}
   ],
-  custom:[
-    {name:"Printed Custom", image:"images/bag1.jpg", price:"800"},
-    {name:"Logo Custom", image:"images/bag2.jpg", price:"900"},
-    {name:"Premium Custom", image:"images/bag3.jpg", price:"1200"}
+  bottleBag:[
+    {name:"Jute Bottle Bag", image:"images/4.jpg", price:"800"},
+    {name:"Cotton Bottle Bag", image:"images/5.jpg", price:"900"},
+    {name:"Premium Bottle Bag", image:"images/6.jpg", price:"1200"}
   ],
-  potli:[
-    {name:"Traditional Potli", image:"images/1.jpg", price:"500"},
-    {name:"Designer Potli", image:"images/2.jpg", price:"700"},
-    {name:"Wedding Potli", image:"images/3.jpg", price:"950"}
+  weddingBag:[
+    {name:"Traditional Wedding Bag", image:"images/1.jpg", price:"500"},
+    {name:"Designer Wedding Bag", image:"images/2.jpg", price:"700"},
+    {name:"Premium Wedding Bag", image:"images/3.jpg", price:"950"}
   ],
-  kids:[
-    {name:"Cartoon Bag", image:"images/4.jpg", price:"400"},
-    {name:"School Bag", image:"images/5.jpg", price:"600"},
-    {name:"Premium Kids", image:"images/6.jpg", price:"800"}
+  kidsBag:[
+    {name:"Cartoon Kids Bag", image:"images/4.jpg", price:"400"},
+    {name:"School Kids Bag", image:"images/5.jpg", price:"600"},
+    {name:"Premium Kids Bag", image:"images/6.jpg", price:"800"}
+  ],
+  plainBag:[
+    {name:"Basic Plain Bag", image:"images/1.jpg", price:"300"},
+    {name:"Standard Plain Bag", image:"images/2.jpg", price:"450"},
+    {name:"Premium Plain Bag", image:"images/3.jpg", price:"600"}
   ]
 };
 
@@ -166,7 +171,7 @@ const allProducts = {
 const container = document.getElementById("products");
 
 // GET CURRENT CATEGORY PRODUCTS
-const products = allProducts[category] || allProducts['tote']; // fallback to tote
+const products = allProducts[category] || allProducts['juteTote']; // fallback to juteTote
 
 // CREATE CARDS
 for(let i=0; i<20; i++){
