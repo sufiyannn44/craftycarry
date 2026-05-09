@@ -130,10 +130,45 @@ if(category) {
 
 // PRODUCTS
 const allProducts = {
-  juteTote:[
-    {name:"Classic Jute Tote", image:"images/1.jpg", price:"600"},
-    {name:"Premium Jute Tote", image:"images/2.jpg", price:"700"},
-    {name:"Designer Jute Tote", image:"images/3.jpg", price:"900"}
+  juteTote: [
+    {name:"Jute Bag 100", image:"jute bags/100.jpg", price:"600"},
+    {name:"Jute Bag 101", image:"jute bags/101.jpg", price:"600"},
+    {name:"Jute Bag 102", image:"jute bags/102.jpg", price:"600"},
+    {name:"Jute Bag 103", image:"jute bags/103.png", price:"600"},
+    {name:"Jute Bag 104", image:"jute bags/104.jpg", price:"600"},
+    {name:"Jute Bag 105", image:"jute bags/105.jpg", price:"600"},
+    {name:"Jute Bag 106", image:"jute bags/106.jpg", price:"600"},
+    {name:"Jute Bag 107", image:"jute bags/107.jpg", price:"600"},
+    {name:"Jute Bag 108", image:"jute bags/108.jpg", price:"600"},
+    {name:"Jute Bag 109", image:"jute bags/109.jpg", price:"600"},
+    {name:"Jute Bag 110", image:"jute bags/110.jpg", price:"600"},
+    {name:"Jute Bag 111", image:"jute bags/111.jpg", price:"600"},
+    {name:"Jute Bag 112", image:"jute bags/112.jpg", price:"600"},
+    {name:"Jute Bag 113", image:"jute bags/113.jpg", price:"600"},
+    {name:"Jute Bag 114", image:"jute bags/114.jpg", price:"600"},
+    {name:"Jute Bag 115", image:"jute bags/115.jpg", price:"600"},
+    {name:"Jute Bag 116", image:"jute bags/116.jpg", price:"600"},
+    {name:"Jute Bag 117", image:"jute bags/117.jpg", price:"600"},
+    {name:"Jute Bag 118", image:"jute bags/118.jpg", price:"600"},
+    {name:"Jute Bag 119", image:"jute bags/119.jpg", price:"600"},
+    {name:"Jute Bag 120", image:"jute bags/120.jpg", price:"600"},
+    {name:"Jute Bag 121", image:"jute bags/121.jpg", price:"600"},
+    {name:"Jute Bag 122", image:"jute bags/122.jpg", price:"600"},
+    {name:"Jute Bag 123", image:"jute bags/123.jpg", price:"600"},
+    {name:"Jute Bag 124", image:"jute bags/124.jpg", price:"600"},
+    {name:"Jute Bag 125", image:"jute bags/125.png", price:"600"},
+    {name:"Jute Bag 126", image:"jute bags/126.jpg", price:"600"},
+    {name:"Jute Bag 127", image:"jute bags/127.jpg", price:"600"},
+    {name:"Jute Bag 128", image:"jute bags/128.jpg", price:"600"},
+    {name:"Jute Bag 129", image:"jute bags/129.jpg", price:"600"},
+    {name:"Jute Bag 130", image:"jute bags/130.jpg", price:"600"},
+    {name:"Jute Bag 131", image:"jute bags/131.jpg", price:"600"},
+    {name:"Jute Bag 132", image:"jute bags/132.jpg", price:"600"},
+    {name:"Jute Bag 133", image:"jute bags/133.jpg", price:"600"},
+    {name:"Jute Bag 134", image:"jute bags/134.jpg", price:"600"},
+    {name:"Jute Bag 135", image:"jute bags/135.jpg", price:"600"},
+    {name:"Jute Bag 136", image:"jute bags/136.jpg", price:"600"},
+    {name:"Jute Bag 137", image:"jute bags/137.jpg", price:"600"}
   ],
   cottonTote:[
     {name:"Classic Cotton Tote", image:"images/4.jpg", price:"650"},
@@ -174,8 +209,8 @@ const container = document.getElementById("products");
 const products = allProducts[category] || allProducts['juteTote']; // fallback to juteTote
 
 // CREATE CARDS
-for(let i=0; i<20; i++){
-  const product = products[i % products.length];
+for(let i=0; i<products.length; i++){
+  const product = products[i];
   // Add some visual flair: Bestseller / New tags randomly
   const badgeHtml = (i % 5 === 0) ? `<div class="card-badge">Bestseller</div>` : ((i % 7 === 0) ? `<div class="card-badge" style="background:var(--secondary-color)">New</div>` : '');
 

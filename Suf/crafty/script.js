@@ -33,17 +33,46 @@ function viewAll(category){
 // =========================
 
 document.addEventListener("DOMContentLoaded", () => {
+  const container = document.getElementById("slider");
   const track = document.getElementById("track");
 
-  if (track) {
+  if (container && track) {
     // Clone children for seamless infinite scroll marquee
     const items = Array.from(track.children);
     items.forEach(item => {
       const clone = item.cloneNode(true);
       track.appendChild(clone);
     });
+
+    let isScrolling = true;
+    let scrollSpeed = 1; // Adjust speed if needed
+
+    const autoScroll = () => {
+      if (isScrolling) {
+        container.scrollLeft += scrollSpeed;
+        
+        // If we have scrolled past the original set of items, reset to 0 seamlessly
+        if (container.scrollLeft >= track.scrollWidth / 2) {
+          container.scrollLeft = 0;
+        }
+      }
+      requestAnimationFrame(autoScroll);
+    };
+
+    // Start auto scroll
+    requestAnimationFrame(autoScroll);
+
+    // Pause on hover or manual interaction
+    container.addEventListener('mouseenter', () => isScrolling = false);
+    container.addEventListener('mouseleave', () => isScrolling = true);
+    
+    // For touch devices
+    container.addEventListener('touchstart', () => isScrolling = false);
+    container.addEventListener('touchend', () => isScrolling = true);
   }
 });
+
+
 
 // =========================
 // MOBILE MENU TOGGLE
