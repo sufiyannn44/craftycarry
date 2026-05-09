@@ -187,8 +187,8 @@ document.addEventListener("DOMContentLoaded", () => {
   // 2. Set up the IntersectionObserver
   const revealOptions = {
     root: null,
-    threshold: 0.15, // Trigger when 15% of the element is visible
-    rootMargin: "0px 0px -50px 0px" // Trigger slightly before the bottom
+    threshold: 0.05, // Trigger when 15% of the element is visible
+    rootMargin: "0px 0px -20px 0px" // Trigger slightly before the bottom
   };
 
   const revealObserver = new IntersectionObserver((entries, observer) => {

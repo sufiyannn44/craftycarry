@@ -955,9 +955,15 @@ footer {
   will-change: opacity, transform;
 }
 
+@media (max-width: 768px) {
+  .reveal {
+    transform: translateY(15px); /* Reduced for mobile horizontal scrolling containers */
+  }
+}
+
 .reveal.active {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) !important;
 }
 
 .card.reveal:nth-child(2) { transition-delay: 0.1s; }
