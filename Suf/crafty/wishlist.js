@@ -86,7 +86,12 @@ function updateAllHeartIcons() {
       btn.innerHTML = '<i class="far fa-heart"></i>';
       imgWrapper.appendChild(btn);
     }
-    
+  });
+
+  // Now update ALL .like-btn on the page (including the ones injected inline on product.html)
+  const allHeartBtns = document.querySelectorAll('.like-btn');
+  allHeartBtns.forEach(btn => {
+    const name = btn.getAttribute('data-name');
     const icon = btn.querySelector('i');
     if (wishlist.some(item => item.name === name)) {
       btn.classList.add('active');
@@ -147,9 +152,9 @@ function renderWishlistDrawer() {
     
     html += `
       <div class="wishlist-item">
-        <img src="${imgPath}" alt="${item.name}" onerror="this.src='${pathPrefix}images/1.jpg'">
+        <img src="${imgPath}" alt="${item.name}" onerror="this.src='${pathPrefix}images/1.jpg'" onclick="openProduct('${item.name}', '${item.image}', '${item.price}')" style="cursor: pointer;">
         <div class="wishlist-item-details">
-          <h4>${item.name}</h4>
+          <h4 onclick="openProduct('${item.name}', '${item.image}', '${item.price}')" style="cursor: pointer;">${item.name}</h4>
           <p class="price">₹${item.price}</p>
           <div class="wishlist-actions">
             <button class="remove-btn" onclick="removeWishlistItem('${item.name}')"><i class="fas fa-trash"></i></button>
