@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Crafty Carry - Premium Handcrafted Bags</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link rel="stylesheet" href="style.css?v=5">
+<link rel="stylesheet" href="style.css?v=6">
 <style>
 /* GUARANTEED MOBILE SLIDER LAYOUT */
 @media (max-width: 768px) {
@@ -97,10 +97,6 @@
     <img src="logo/lo.png" alt="Crafty Carry Logo"> Crafty Carry
   </a>
 
-  <div class="menu-toggle" id="mobile-menu">
-    <i class="fas fa-bars"></i>
-  </div>
-
   <nav id="nav-menu">
     <a href="#jute-tote">Jute tote bag</a>
     <a href="#cotton-canvas-jute">Cotton canvas jute bag</a>
@@ -113,6 +109,15 @@
     <a href="#potli-drawstring">Potli and drawstring bag</a>
   </nav>
 
+  <div class="header-actions">
+    <a class="wishlist-icon-btn" onclick="toggleWishlistDrawer()">
+      <i class="far fa-heart"></i>
+      <div class="wishlist-badge" id="wishlist-badge">0</div>
+    </a>
+    <div class="menu-toggle" id="mobile-menu">
+      <i class="fas fa-bars"></i>
+    </div>
+  </div>
 </header>
 
 <!-- HERO -->
@@ -627,10 +632,21 @@
   </div>
 </footer>
 
+<!-- WISHLIST DRAWER -->
+<div class="wishlist-overlay" id="wishlist-overlay" onclick="toggleWishlistDrawer()"></div>
+<div class="wishlist-drawer" id="wishlist-drawer">
+  <div class="wishlist-header">
+    <h2>Your Wishlist</h2>
+    <span class="close-wishlist" onclick="toggleWishlistDrawer()">&times;</span>
+  </div>
+  <div class="wishlist-content" id="wishlist-content">
+    <!-- Populated by JS -->
+  </div>
+</div>
+
 <!-- SCRIPT -->
 <script src="script.js"></script>
-
-
+<script src="wishlist.js"></script>
 
 </body>
 </html>

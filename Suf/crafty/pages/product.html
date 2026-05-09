@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Product Details - Crafty Carry</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link rel="stylesheet" href="../style.css?v=2">
+<link rel="stylesheet" href="../style.css?v=6">
 <style>
 /* PRODUCT PAGE OVERRIDES & SPECIFICS */
 body {
@@ -298,9 +298,15 @@ body {
   <a href="../index.html" class="logo">
     <i class="fas fa-shopping-bag"></i> Crafty Carry
   </a>
-  <a href="../index.html" class="back">
-    <i class="fas fa-arrow-left"></i> Back to Store
-  </a>
+  <div class="header-actions">
+    <a href="../index.html" class="back" style="padding: 10px 15px;">
+      <i class="fas fa-arrow-left"></i> <span class="hide-mobile">Back</span>
+    </a>
+    <a class="wishlist-icon-btn" onclick="toggleWishlistDrawer()">
+      <i class="far fa-heart"></i>
+      <div class="wishlist-badge" id="wishlist-badge">0</div>
+    </a>
+  </div>
 </div>
 
 <!-- PRODUCT -->
@@ -381,7 +387,21 @@ const price = p.get("price");
 
 if (name) document.getElementById("name").innerText = name;
 if (price) document.getElementById("price").innerText = price;
-if (image) document.getElementById("img").src = "../" + image;
+if (image) {
+  document.getElementById("img").src = "../" + image;
+  
+  // Inject Wishlist Button on single product image
+  const imgWrapper = document.querySelector('.product-img');
+  if (imgWrapper) {
+    imgWrapper.style.position = 'relative';
+    const btn = document.createElement('div');
+    btn.className = 'like-btn';
+    btn.setAttribute('data-name', name);
+    btn.onclick = (e) => toggleWishlist(e, name, image, price);
+    btn.innerHTML = '<i class="far fa-heart"></i>';
+    imgWrapper.appendChild(btn);
+  }
+}
 
 // WhatsApp
 function orderWhatsApp(){
@@ -425,5 +445,18 @@ function orderWhatsApp(){
   </div>
 </footer>
 
+<!-- WISHLIST DRAWER -->
+<div class="wishlist-overlay" id="wishlist-overlay" onclick="toggleWishlistDrawer()"></div>
+<div class="wishlist-drawer" id="wishlist-drawer">
+  <div class="wishlist-header">
+    <h2>Your Wishlist</h2>
+    <span class="close-wishlist" onclick="toggleWishlistDrawer()">&times;</span>
+  </div>
+  <div class="wishlist-content" id="wishlist-content">
+    <!-- Populated by JS -->
+  </div>
+</div>
+
+<script src="../wishlist.js"></script>
 </body>
 </html>
