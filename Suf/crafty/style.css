@@ -651,4 +651,63 @@ footer {
   .overlay p { font-size: 16px; }
   .category { padding: 60px 20px; }
   .category h2 { font-size: 28px; }
+
+  /* Mobile Slider for Products on Homepage */
+  .category .products {
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    flex-wrap: nowrap;
+    gap: 15px;
+    padding-bottom: 20px;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .category .products::-webkit-scrollbar {
+    display: none;
+  }
+  .category .card {
+    min-width: 150px; /* Small size like screenshot */
+    scroll-snap-align: start;
+    flex-shrink: 0;
+  }
+  
+  /* Make allproducts.html a 2-column grid on mobile */
+  .products:not(.category .products) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    padding: 0 10px 60px;
+  }
+
+  .card .img-wrapper {
+    aspect-ratio: 1 / 1; /* Square shape like screenshot */
+  }
+  .card h3 {
+    font-size: 13px; /* Small legible text */
+    line-height: 1.2;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .card-content {
+    padding: 12px 10px;
+  }
+  .price {
+    font-size: 13px;
+    margin-bottom: 15px;
+  }
+  .price span {
+    font-size: 11px;
+  }
+  .card button {
+    padding: 8px 0;
+    font-size: 11px;
+  }
+  .card-badge {
+    padding: 4px 8px;
+    font-size: 9px;
+    top: 10px;
+    left: 10px;
+  }
 }

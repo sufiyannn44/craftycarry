@@ -5,15 +5,22 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Crafty Carry - Premium Handcrafted Bags</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=2">
 </head>
 
 <body>
 
 <!-- LOADER -->
 <div id="loader">
-  <h1>Welcome to Craft Carry</h1>
+  <h1>Welcome to Crafty Carry</h1>
 </div>
+<script>
+  if (sessionStorage.getItem('loaderSeen')) {
+    document.getElementById('loader').style.display = 'none';
+  } else {
+    sessionStorage.setItem('loaderSeen', 'true');
+  }
+</script>
 
 <!-- HEADER -->
 <header>
@@ -26,13 +33,15 @@
   </div>
 
   <nav id="nav-menu">
-    <a href="#jute-tote">Jute Tote bag</a>
-    <a href="#cotton-tote">Cotton Tote bag</a>
-    <a href="#window-hamper">Window hamper bag</a>
-    <a href="#bottle-bag">Bottle Jute & Cotton bag</a>
-    <a href="#wedding-bag">wedding jute&cotton bags</a>
-    <a href="#kids-bag">Kids jute&cotton bags</a>
-    <a href="#plain-bag">Plain jute& cotton bags</a>
+    <a href="#jute-tote">Jute tote bag</a>
+    <a href="#cotton-canvas-jute">Cotton canvas jute bag</a>
+    <a href="#hamper-window">Hamper window bag</a>
+    <a href="#bottle-bag">Bottle bag</a>
+    <a href="#kids-bag">Kids bag</a>
+    <a href="#plain-bag">Plain bag</a>
+    <a href="#wedding-gifting">Wedding gifting bag</a>
+    <a href="#birthday-gifting">Birthday gifting bag</a>
+    <a href="#potli-drawstring">Potli and drawstring bag</a>
   </nav>
 
 </header>
@@ -60,63 +69,81 @@
       <a href="#jute-tote" class="item-link">
         <div class="item">
           <div class="item-img-wrapper">
-            <img src="images/1.jpg" alt="Jute Tote bag" onerror="this.src='images/1.jpg'">
+            <img src="jute bags/100.jpg" alt="Jute tote bag" onerror="this.src='images/1.jpg'">
           </div>
-          <p>Jute Tote bag</p>
+          <p>Jute tote bag</p>
         </div>
       </a>
       
-      <a href="#cotton-tote" class="item-link">
+      <a href="#cotton-canvas-jute" class="item-link">
         <div class="item">
           <div class="item-img-wrapper">
-            <img src="images/2.jpg" alt="Cotton Tote bag" onerror="this.src='images/1.jpg'">
+            <img src="cotton tote bags/201.jpg" alt="Cotton canvas jute bag" onerror="this.src='images/1.jpg'">
           </div>
-          <p>Cotton Tote bag</p>
+          <p>Cotton canvas jute bag</p>
         </div>
       </a>
 
-      <a href="#window-hamper" class="item-link">
+      <a href="#hamper-window" class="item-link">
         <div class="item">
           <div class="item-img-wrapper">
-            <img src="images/3.jpg" alt="Window hamper bag" onerror="this.src='images/1.jpg'">
+            <img src="window hammer bag/301.jpg" alt="Hamper window bag" onerror="this.src='images/1.jpg'">
           </div>
-          <p>Window hamper bag</p>
+          <p>Hamper window bag</p>
         </div>
       </a>
 
       <a href="#bottle-bag" class="item-link">
         <div class="item">
           <div class="item-img-wrapper">
-            <img src="images/4.jpg" alt="Bottle Jute & Cotton bag" onerror="this.src='images/1.jpg'">
+            <img src="bottle bag/401.jpg" alt="Bottle bag" onerror="this.src='images/1.jpg'">
           </div>
-          <p>Bottle Jute & Cotton</p>
-        </div>
-      </a>
-
-      <a href="#wedding-bag" class="item-link">
-        <div class="item">
-          <div class="item-img-wrapper">
-            <img src="images/5.jpg" alt="wedding jute&cotton bags" onerror="this.src='images/1.jpg'">
-          </div>
-          <p>Wedding Bags</p>
+          <p>Bottle bag</p>
         </div>
       </a>
 
       <a href="#kids-bag" class="item-link">
         <div class="item">
           <div class="item-img-wrapper">
-            <img src="images/6.jpg" alt="Kids jute&cotton bags" onerror="this.src='images/1.jpg'">
+            <img src="kids bag/501.jpg" alt="Kids bag" onerror="this.src='images/1.jpg'">
           </div>
-          <p>Kids Bags</p>
+          <p>Kids bag</p>
         </div>
       </a>
 
       <a href="#plain-bag" class="item-link">
         <div class="item">
           <div class="item-img-wrapper">
-            <img src="images/1.jpg" alt="Plain jute& cotton bags" onerror="this.src='images/1.jpg'">
+            <img src="plain bag/601.jpg" alt="Plain bag" onerror="this.src='images/1.jpg'">
           </div>
-          <p>Plain Bags</p>
+          <p>Plain bag</p>
+        </div>
+      </a>
+
+      <a href="#wedding-gifting" class="item-link">
+        <div class="item">
+          <div class="item-img-wrapper">
+            <img src="wedding bag/701.jpg" alt="Wedding gifting bag" onerror="this.src='images/1.jpg'">
+          </div>
+          <p>Wedding gifting bag</p>
+        </div>
+      </a>
+
+      <a href="#birthday-gifting" class="item-link">
+        <div class="item">
+          <div class="item-img-wrapper">
+            <img src="birthday gifting/801.jpg" alt="Birthday gifting bag" onerror="this.src='images/1.jpg'">
+          </div>
+          <p>Birthday gifting bag</p>
+        </div>
+      </a>
+
+      <a href="#potli-drawstring" class="item-link">
+        <div class="item">
+          <div class="item-img-wrapper">
+            <img src="Potli and drawstring bag/901.jpg" alt="Potli and drawstring bag" onerror="this.src='images/1.jpg'">
+          </div>
+          <p>Potli and drawstring bag</p>
         </div>
       </a>
     </div>
@@ -130,7 +157,7 @@
     <div class="card" onclick="openProduct('Classic Jute Tote', 'images/1.jpg', '600')">
       <div class="card-badge">Bestseller</div>
       <div class="img-wrapper">
-        <img src="images/1.jpg" alt="Classic Jute Tote" onerror="this.src='images/1.jpg'">
+        <img src="jute bags/100.jpg" alt="Classic Jute Tote" onerror="this.src='images/1.jpg'">
       </div>
       <div class="card-content">
         <h3>Classic Jute Tote</h3>
@@ -140,7 +167,7 @@
     </div>
     <div class="card" onclick="openProduct('Premium Jute Tote', 'images/2.jpg', '700')">
       <div class="img-wrapper">
-        <img src="images/2.jpg" alt="Premium Jute Tote" onerror="this.src='images/1.jpg'">
+        <img src="jute bags/101.jpg" alt="Premium Jute Tote" onerror="this.src='images/1.jpg'">
       </div>
       <div class="card-content">
         <h3>Premium Jute Tote</h3>
@@ -151,7 +178,7 @@
     <div class="card" onclick="openProduct('Designer Jute Tote', 'images/3.jpg', '900')">
       <div class="card-badge">New</div>
       <div class="img-wrapper">
-        <img src="images/3.jpg" alt="Designer Jute Tote" onerror="this.src='images/1.jpg'">
+        <img src="jute bags/102.jpg" alt="Designer Jute Tote" onerror="this.src='images/1.jpg'">
       </div>
       <div class="card-content">
         <h3>Designer Jute Tote</h3>
@@ -159,125 +186,126 @@
         <button>View Details</button>
       </div>
     </div>
-</div>
+  </div>
   <div class="view-all">
     <button onclick="viewAll('juteTote')">VIEW ALL JUTE TOTE BAGS</button>
   </div>
 </section>
 
-<!-- COTTON TOTE -->
-<section id="cotton-tote" class="category">
-  <h2>Cotton Tote Bags</h2>
+<!-- COTTON CANVAS JUTE -->
+<section id="cotton-canvas-jute" class="category">
+  <h2>Cotton Canvas Jute Bags</h2>
   <div class="products">
-    <div class="card" onclick="openProduct('Classic Cotton Tote', 'images/4.jpg', '650')">
+    <div class="card" onclick="openProduct('Basic Cotton Canvas Jute', 'images/4.jpg', '450')">
       <div class="img-wrapper">
-        <img src="images/4.jpg" alt="Classic Cotton Tote" onerror="this.src='images/1.jpg'">
+        <img src="cotton tote bags/200.jpg" alt="Basic Cotton Canvas Jute" onerror="this.src='images/1.jpg'">
       </div>
       <div class="card-content">
-        <h3>Classic Cotton Tote</h3>
+        <h3>Basic Cotton Canvas Jute</h3>
+        <p class="price">₹450 <span>/ piece</span></p>
+        <button>View Details</button>
+      </div>
+    </div>
+    <div class="card" onclick="openProduct('Premium Cotton Canvas Jute', 'cotton tote bags/201.jpg', '650')">
+      <div class="card-badge">Bestseller</div>
+      <div class="img-wrapper">
+        <img src="cotton tote bags/201.jpg" alt="Premium Cotton Canvas Jute" onerror="this.src='cotton tote bags/201.jpg'">
+      </div>
+      <div class="card-content">
+        <h3>Premium Cotton Canvas Jute</h3>
         <p class="price">₹650 <span>/ piece</span></p>
         <button>View Details</button>
       </div>
     </div>
-    <div class="card" onclick="openProduct('Printed Cotton Tote', 'images/5.jpg', '750')">
+    <div class="card" onclick="openProduct('Designer Cotton Canvas Jute', 'images/6.jpg', '850')">
       <div class="img-wrapper">
-        <img src="images/5.jpg" alt="Printed Cotton Tote" onerror="this.src='images/1.jpg'">
+        <img src="cotton tote bags/203.jpg" alt="Designer Cotton Canvas Jute" onerror="this.src='images/1.jpg'">
       </div>
       <div class="card-content">
-        <h3>Printed Cotton Tote</h3>
-        <p class="price">₹750 <span>/ piece</span></p>
-        <button>View Details</button>
-      </div>
-    </div>
-    <div class="card" onclick="openProduct('Premium Cotton Tote', 'images/6.jpg', '900')">
-      <div class="card-badge">Premium</div>
-      <div class="img-wrapper">
-        <img src="images/6.jpg" alt="Premium Cotton Tote" onerror="this.src='images/1.jpg'">
-      </div>
-      <div class="card-content">
-        <h3>Premium Cotton Tote</h3>
-        <p class="price">₹900 <span>/ piece</span></p>
+        <h3>Designer Cotton Canvas Jute</h3>
+        <p class="price">₹850 <span>/ piece</span></p>
         <button>View Details</button>
       </div>
     </div>
   </div>
   <div class="view-all">
-    <button onclick="viewAll('cottonTote')">VIEW ALL COTTON TOTE BAGS</button>
+    <button onclick="viewAll('cottonCanvasJute')">VIEW ALL COTTON CANVAS JUTE BAGS</button>
   </div>
 </section>
 
-<!-- WINDOW HAMPER -->
-<section id="window-hamper" class="category">
-  <h2>Window Hamper Bags</h2>
+<!-- HAMPER WINDOW -->
+<section id="hamper-window" class="category">
+  <h2>Hamper Window Bags</h2>
   <div class="products">
-    <div class="card" onclick="openProduct('Classic Window Hamper', 'images/1.jpg', '400')">
+    <div class="card" onclick="openProduct('Basic Hamper Window', 'images/1.jpg', '500')">
       <div class="img-wrapper">
-        <img src="images/1.jpg" alt="Classic Window Hamper" onerror="this.src='images/1.jpg'">
+        <img src="images/1.jpg" alt="Basic Hamper Window" onerror="this.src='images/1.jpg'">
       </div>
       <div class="card-content">
-        <h3>Classic Window Hamper</h3>
-        <p class="price">₹400 <span>/ piece</span></p>
+        <h3>Basic Hamper Window</h3>
+        <p class="price">₹500 <span>/ piece</span></p>
         <button>View Details</button>
       </div>
     </div>
-    <div class="card" onclick="openProduct('Gift Window Hamper', 'images/2.jpg', '550')">
+    <div class="card" onclick="openProduct('Premium Hamper Window', 'images/2.jpg', '700')">
+      <div class="card-badge">Bestseller</div>
       <div class="img-wrapper">
-        <img src="images/2.jpg" alt="Gift Window Hamper" onerror="this.src='images/1.jpg'">
+        <img src="images/2.jpg" alt="Premium Hamper Window" onerror="this.src='images/1.jpg'">
       </div>
       <div class="card-content">
-        <h3>Gift Window Hamper</h3>
-        <p class="price">₹550 <span>/ piece</span></p>
-        <button>View Details</button>
-      </div>
-    </div>
-    <div class="card" onclick="openProduct('Premium Window Hamper', 'images/3.jpg', '700')">
-      <div class="img-wrapper">
-        <img src="images/3.jpg" alt="Premium Window Hamper" onerror="this.src='images/1.jpg'">
-      </div>
-      <div class="card-content">
-        <h3>Premium Window Hamper</h3>
+        <h3>Premium Hamper Window</h3>
         <p class="price">₹700 <span>/ piece</span></p>
         <button>View Details</button>
       </div>
     </div>
-  </div>
-  <div class="view-all">
-    <button onclick="viewAll('windowHamper')">VIEW ALL WINDOW HAMPER BAGS</button>
-  </div>
-</section>
-
-<!-- BOTTLE BAGS -->
-<section id="bottle-bag" class="category">
-  <h2>Bottle Jute & Cotton Bags</h2>
-  <div class="products">
-    <div class="card" onclick="openProduct('Jute Bottle Bag', 'images/4.jpg', '800')">
+    <div class="card" onclick="openProduct('Designer Hamper Window', 'images/3.jpg', '900')">
       <div class="img-wrapper">
-        <img src="images/4.jpg" alt="Jute Bottle Bag" onerror="this.src='images/1.jpg'">
+        <img src="images/3.jpg" alt="Designer Hamper Window" onerror="this.src='images/1.jpg'">
       </div>
       <div class="card-content">
-        <h3>Jute Bottle Bag</h3>
-        <p class="price">₹800 <span>/ piece</span></p>
-        <button>View Details</button>
-      </div>
-    </div>
-    <div class="card" onclick="openProduct('Cotton Bottle Bag', 'images/5.jpg', '900')">
-      <div class="card-badge">Custom Logo</div>
-      <div class="img-wrapper">
-        <img src="images/5.jpg" alt="Cotton Bottle Bag" onerror="this.src='images/1.jpg'">
-      </div>
-      <div class="card-content">
-        <h3>Cotton Bottle Bag</h3>
+        <h3>Designer Hamper Window</h3>
         <p class="price">₹900 <span>/ piece</span></p>
         <button>View Details</button>
       </div>
     </div>
-    <div class="card" onclick="openProduct('Premium Bottle Bag', 'images/6.jpg', '1200')">
+  </div>
+  <div class="view-all">
+    <button onclick="viewAll('hamperWindow')">VIEW ALL HAMPER WINDOW BAGS</button>
+  </div>
+</section>
+
+<!-- BOTTLE BAG -->
+<section id="bottle-bag" class="category">
+  <h2>Bottle Bags</h2>
+  <div class="products">
+    <div class="card" onclick="openProduct('Basic Bottle Bag', 'images/4.jpg', '300')">
       <div class="img-wrapper">
-        <img src="images/6.jpg" alt="Premium Bottle Bag" onerror="this.src='images/1.jpg'">
+        <img src="images/4.jpg" alt="Basic Bottle Bag" onerror="this.src='images/1.jpg'">
+      </div>
+      <div class="card-content">
+        <h3>Basic Bottle Bag</h3>
+        <p class="price">₹300 <span>/ piece</span></p>
+        <button>View Details</button>
+      </div>
+    </div>
+    <div class="card" onclick="openProduct('Premium Bottle Bag', 'images/5.jpg', '500')">
+      <div class="card-badge">Bestseller</div>
+      <div class="img-wrapper">
+        <img src="images/5.jpg" alt="Premium Bottle Bag" onerror="this.src='images/1.jpg'">
       </div>
       <div class="card-content">
         <h3>Premium Bottle Bag</h3>
-        <p class="price">₹1200 <span>/ piece</span></p>
+        <p class="price">₹500 <span>/ piece</span></p>
+        <button>View Details</button>
+      </div>
+    </div>
+    <div class="card" onclick="openProduct('Designer Bottle Bag', 'images/6.jpg', '700')">
+      <div class="img-wrapper">
+        <img src="images/6.jpg" alt="Designer Bottle Bag" onerror="this.src='images/1.jpg'">
+      </div>
+      <div class="card-content">
+        <h3>Designer Bottle Bag</h3>
+        <p class="price">₹700 <span>/ piece</span></p>
         <button>View Details</button>
       </div>
     </div>
@@ -287,78 +315,38 @@
   </div>
 </section>
 
-<!-- WEDDING BAGS -->
-<section id="wedding-bag" class="category">
-  <h2>Wedding Jute & Cotton Bags</h2>
-  <div class="products">
-    <div class="card" onclick="openProduct('Traditional Wedding Bag', 'images/1.jpg', '500')">
-      <div class="img-wrapper">
-        <img src="images/1.jpg" alt="Traditional Wedding Bag" onerror="this.src='images/1.jpg'">
-      </div>
-      <div class="card-content">
-        <h3>Traditional Wedding Bag</h3>
-        <p class="price">₹500 <span>/ piece</span></p>
-        <button>View Details</button>
-      </div>
-    </div>
-    <div class="card" onclick="openProduct('Designer Wedding Bag', 'images/2.jpg', '700')">
-      <div class="card-badge">Wedding</div>
-      <div class="img-wrapper">
-        <img src="images/2.jpg" alt="Designer Wedding Bag" onerror="this.src='images/1.jpg'">
-      </div>
-      <div class="card-content">
-        <h3>Designer Wedding Bag</h3>
-        <p class="price">₹700 <span>/ piece</span></p>
-        <button>View Details</button>
-      </div>
-    </div>
-    <div class="card" onclick="openProduct('Premium Wedding Bag', 'images/3.jpg', '950')">
-      <div class="img-wrapper">
-        <img src="images/3.jpg" alt="Premium Wedding Bag" onerror="this.src='images/1.jpg'">
-      </div>
-      <div class="card-content">
-        <h3>Premium Wedding Bag</h3>
-        <p class="price">₹950 <span>/ piece</span></p>
-        <button>View Details</button>
-      </div>
-    </div>
-  </div>
-  <div class="view-all">
-    <button onclick="viewAll('weddingBag')">VIEW ALL WEDDING BAGS</button>
-  </div>
-</section>
-
-<!-- KIDS BAGS -->
+<!-- KIDS BAG -->
 <section id="kids-bag" class="category">
-  <h2>Kids Jute & Cotton Bags</h2>
+  <h2>Kids Bags</h2>
   <div class="products">
-    <div class="card" onclick="openProduct('Cartoon Kids Bag', 'images/4.jpg', '400')">
+    <div class="card" onclick="openProduct('Basic Kids Bag', 'images/1.jpg', '350')">
       <div class="img-wrapper">
-        <img src="images/4.jpg" alt="Cartoon Kids Bag" onerror="this.src='images/1.jpg'">
+        <img src="images/1.jpg" alt="Basic Kids Bag" onerror="this.src='images/1.jpg'">
       </div>
       <div class="card-content">
-        <h3>Cartoon Kids Bag</h3>
-        <p class="price">₹400 <span>/ piece</span></p>
+        <h3>Basic Kids Bag</h3>
+        <p class="price">₹350 <span>/ piece</span></p>
         <button>View Details</button>
       </div>
     </div>
-    <div class="card" onclick="openProduct('School Kids Bag', 'images/5.jpg', '600')">
+    <div class="card" onclick="openProduct('Premium Kids Bag', 'images/2.jpg', '550')">
+      <div class="card-badge">Bestseller</div>
       <div class="img-wrapper">
-        <img src="images/5.jpg" alt="School Kids Bag" onerror="this.src='images/1.jpg'">
-      </div>
-      <div class="card-content">
-        <h3>School Kids Bag</h3>
-        <p class="price">₹600 <span>/ piece</span></p>
-        <button>View Details</button>
-      </div>
-    </div>
-    <div class="card" onclick="openProduct('Premium Kids Bag', 'images/6.jpg', '800')">
-      <div class="img-wrapper">
-        <img src="images/6.jpg" alt="Premium Kids Bag" onerror="this.src='images/1.jpg'">
+        <img src="images/2.jpg" alt="Premium Kids Bag" onerror="this.src='images/1.jpg'">
       </div>
       <div class="card-content">
         <h3>Premium Kids Bag</h3>
-        <p class="price">₹800 <span>/ piece</span></p>
+        <p class="price">₹550 <span>/ piece</span></p>
+        <button>View Details</button>
+      </div>
+    </div>
+    <div class="card" onclick="openProduct('Designer Kids Bag', 'images/3.jpg', '750')">
+      <div class="img-wrapper">
+        <img src="images/3.jpg" alt="Designer Kids Bag" onerror="this.src='images/1.jpg'">
+      </div>
+      <div class="card-content">
+        <h3>Designer Kids Bag</h3>
+        <p class="price">₹750 <span>/ piece</span></p>
         <button>View Details</button>
       </div>
     </div>
@@ -368,36 +356,37 @@
   </div>
 </section>
 
-<!-- PLAIN BAGS -->
+<!-- PLAIN BAG -->
 <section id="plain-bag" class="category">
-  <h2>Plain Jute & Cotton Bags</h2>
+  <h2>Plain Bags</h2>
   <div class="products">
-    <div class="card" onclick="openProduct('Basic Plain Bag', 'images/1.jpg', '300')">
+    <div class="card" onclick="openProduct('Basic Plain Bag', 'images/4.jpg', '250')">
       <div class="img-wrapper">
-        <img src="images/1.jpg" alt="Basic Plain Bag" onerror="this.src='images/1.jpg'">
+        <img src="images/4.jpg" alt="Basic Plain Bag" onerror="this.src='images/1.jpg'">
       </div>
       <div class="card-content">
         <h3>Basic Plain Bag</h3>
-        <p class="price">₹300 <span>/ piece</span></p>
+        <p class="price">₹250 <span>/ piece</span></p>
         <button>View Details</button>
       </div>
     </div>
-    <div class="card" onclick="openProduct('Standard Plain Bag', 'images/2.jpg', '450')">
+    <div class="card" onclick="openProduct('Premium Plain Bag', 'images/5.jpg', '400')">
+      <div class="card-badge">Bestseller</div>
       <div class="img-wrapper">
-        <img src="images/2.jpg" alt="Standard Plain Bag" onerror="this.src='images/1.jpg'">
-      </div>
-      <div class="card-content">
-        <h3>Standard Plain Bag</h3>
-        <p class="price">₹450 <span>/ piece</span></p>
-        <button>View Details</button>
-      </div>
-    </div>
-    <div class="card" onclick="openProduct('Premium Plain Bag', 'images/3.jpg', '600')">
-      <div class="img-wrapper">
-        <img src="images/3.jpg" alt="Premium Plain Bag" onerror="this.src='images/1.jpg'">
+        <img src="images/5.jpg" alt="Premium Plain Bag" onerror="this.src='images/1.jpg'">
       </div>
       <div class="card-content">
         <h3>Premium Plain Bag</h3>
+        <p class="price">₹400 <span>/ piece</span></p>
+        <button>View Details</button>
+      </div>
+    </div>
+    <div class="card" onclick="openProduct('Designer Plain Bag', 'images/6.jpg', '600')">
+      <div class="img-wrapper">
+        <img src="images/6.jpg" alt="Designer Plain Bag" onerror="this.src='images/1.jpg'">
+      </div>
+      <div class="card-content">
+        <h3>Designer Plain Bag</h3>
         <p class="price">₹600 <span>/ piece</span></p>
         <button>View Details</button>
       </div>
@@ -407,6 +396,131 @@
     <button onclick="viewAll('plainBag')">VIEW ALL PLAIN BAGS</button>
   </div>
 </section>
+
+<!-- WEDDING GIFTING BAG -->
+<section id="wedding-gifting" class="category">
+  <h2>Wedding Gifting Bags</h2>
+  <div class="products">
+    <div class="card" onclick="openProduct('Basic Wedding Gifting Bag', 'images/1.jpg', '600')">
+      <div class="img-wrapper">
+        <img src="images/1.jpg" alt="Basic Wedding Gifting Bag" onerror="this.src='images/1.jpg'">
+      </div>
+      <div class="card-content">
+        <h3>Basic Wedding Gifting Bag</h3>
+        <p class="price">₹600 <span>/ piece</span></p>
+        <button>View Details</button>
+      </div>
+    </div>
+    <div class="card" onclick="openProduct('Premium Wedding Gifting Bag', 'images/2.jpg', '850')">
+      <div class="card-badge">Bestseller</div>
+      <div class="img-wrapper">
+        <img src="images/2.jpg" alt="Premium Wedding Gifting Bag" onerror="this.src='images/1.jpg'">
+      </div>
+      <div class="card-content">
+        <h3>Premium Wedding Gifting Bag</h3>
+        <p class="price">₹850 <span>/ piece</span></p>
+        <button>View Details</button>
+      </div>
+    </div>
+    <div class="card" onclick="openProduct('Designer Wedding Gifting Bag', 'images/3.jpg', '1200')">
+      <div class="img-wrapper">
+        <img src="images/3.jpg" alt="Designer Wedding Gifting Bag" onerror="this.src='images/1.jpg'">
+      </div>
+      <div class="card-content">
+        <h3>Designer Wedding Gifting Bag</h3>
+        <p class="price">₹1200 <span>/ piece</span></p>
+        <button>View Details</button>
+      </div>
+    </div>
+  </div>
+  <div class="view-all">
+    <button onclick="viewAll('weddingGifting')">VIEW ALL WEDDING GIFTING BAGS</button>
+  </div>
+</section>
+
+<!-- BIRTHDAY GIFTING BAG -->
+<section id="birthday-gifting" class="category">
+  <h2>Birthday Gifting Bags</h2>
+  <div class="products">
+    <div class="card" onclick="openProduct('Basic Birthday Gifting Bag', 'images/4.jpg', '450')">
+      <div class="img-wrapper">
+        <img src="images/4.jpg" alt="Basic Birthday Gifting Bag" onerror="this.src='images/1.jpg'">
+      </div>
+      <div class="card-content">
+        <h3>Basic Birthday Gifting Bag</h3>
+        <p class="price">₹450 <span>/ piece</span></p>
+        <button>View Details</button>
+      </div>
+    </div>
+    <div class="card" onclick="openProduct('Premium Birthday Gifting Bag', 'images/5.jpg', '650')">
+      <div class="card-badge">Bestseller</div>
+      <div class="img-wrapper">
+        <img src="images/5.jpg" alt="Premium Birthday Gifting Bag" onerror="this.src='images/1.jpg'">
+      </div>
+      <div class="card-content">
+        <h3>Premium Birthday Gifting Bag</h3>
+        <p class="price">₹650 <span>/ piece</span></p>
+        <button>View Details</button>
+      </div>
+    </div>
+    <div class="card" onclick="openProduct('Designer Birthday Gifting Bag', 'images/6.jpg', '850')">
+      <div class="img-wrapper">
+        <img src="images/6.jpg" alt="Designer Birthday Gifting Bag" onerror="this.src='images/1.jpg'">
+      </div>
+      <div class="card-content">
+        <h3>Designer Birthday Gifting Bag</h3>
+        <p class="price">₹850 <span>/ piece</span></p>
+        <button>View Details</button>
+      </div>
+    </div>
+  </div>
+  <div class="view-all">
+    <button onclick="viewAll('birthdayGifting')">VIEW ALL BIRTHDAY GIFTING BAGS</button>
+  </div>
+</section>
+
+<!-- POTLI AND DRAWSTRING BAG -->
+<section id="potli-drawstring" class="category">
+  <h2>Potli and Drawstring Bags</h2>
+  <div class="products">
+    <div class="card" onclick="openProduct('Basic Potli', 'images/1.jpg', '200')">
+      <div class="img-wrapper">
+        <img src="images/1.jpg" alt="Basic Potli" onerror="this.src='images/1.jpg'">
+      </div>
+      <div class="card-content">
+        <h3>Basic Potli</h3>
+        <p class="price">₹200 <span>/ piece</span></p>
+        <button>View Details</button>
+      </div>
+    </div>
+    <div class="card" onclick="openProduct('Premium Drawstring Bag', 'images/2.jpg', '400')">
+      <div class="card-badge">Bestseller</div>
+      <div class="img-wrapper">
+        <img src="images/2.jpg" alt="Premium Drawstring Bag" onerror="this.src='images/1.jpg'">
+      </div>
+      <div class="card-content">
+        <h3>Premium Drawstring Bag</h3>
+        <p class="price">₹400 <span>/ piece</span></p>
+        <button>View Details</button>
+      </div>
+    </div>
+    <div class="card" onclick="openProduct('Designer Potli', 'images/3.jpg', '600')">
+      <div class="img-wrapper">
+        <img src="images/3.jpg" alt="Designer Potli" onerror="this.src='images/1.jpg'">
+      </div>
+      <div class="card-content">
+        <h3>Designer Potli</h3>
+        <p class="price">₹600 <span>/ piece</span></p>
+        <button>View Details</button>
+      </div>
+    </div>
+  </div>
+  <div class="view-all">
+    <button onclick="viewAll('potliDrawstring')">VIEW ALL POTLI AND DRAWSTRING BAGS</button>
+  </div>
+</section>
+
+
 
 <!-- FOOTER -->
 <footer>
@@ -422,13 +536,15 @@
     </div>
     <div class="footer-col">
       <h4>Quick Links</h4>
-      <p><a href="#jute-tote">Jute Tote bag</a></p>
-      <p><a href="#cotton-tote">Cotton Tote bag</a></p>
-      <p><a href="#window-hamper">Window hamper bag</a></p>
-      <p><a href="#bottle-bag">Bottle Jute & Cotton bag</a></p>
-      <p><a href="#wedding-bag">wedding jute&cotton bags</a></p>
-      <p><a href="#kids-bag">Kids jute&cotton bags</a></p>
-      <p><a href="#plain-bag">Plain jute& cotton bags</a></p>
+      <p><a href="#jute-tote">Jute tote bag</a></p>
+      <p><a href="#cotton-canvas-jute">Cotton canvas jute bag</a></p>
+      <p><a href="#hamper-window">Hamper window bag</a></p>
+      <p><a href="#bottle-bag">Bottle bag</a></p>
+      <p><a href="#kids-bag">Kids bag</a></p>
+      <p><a href="#plain-bag">Plain bag</a></p>
+      <p><a href="#wedding-gifting">Wedding gifting bag</a></p>
+      <p><a href="#birthday-gifting">Birthday gifting bag</a></p>
+      <p><a href="#potli-drawstring">Potli and drawstring bag</a></p>
     </div>
     <div class="footer-col">
       <h4>Contact Us</h4>
