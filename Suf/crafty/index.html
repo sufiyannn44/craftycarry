@@ -5,7 +5,76 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Crafty Carry - Premium Handcrafted Bags</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link rel="stylesheet" href="style.css?v=2">
+<link rel="stylesheet" href="style.css?v=3">
+<style>
+/* GUARANTEED MOBILE SLIDER LAYOUT */
+@media (max-width: 768px) {
+  .category .products {
+    display: flex !important;
+    flex-direction: row !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    scroll-snap-type: x mandatory !important;
+    flex-wrap: nowrap !important;
+    gap: 15px !important;
+    padding-bottom: 20px !important;
+  }
+  .category .card {
+    min-width: 150px !important;
+    max-width: 150px !important;
+    width: 150px !important;
+    scroll-snap-align: start !important;
+    flex-shrink: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    background: #fff !important;
+    border: 1px solid #e1e8e4 !important;
+  }
+  .category .card .img-wrapper {
+    width: 100% !important;
+    height: 150px !important;
+    min-height: 150px !important;
+    aspect-ratio: 1 / 1 !important;
+    overflow: hidden !important;
+    background: #f7f9f8 !important;
+  }
+  .category .card img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    display: block !important;
+  }
+  .category .card-content {
+    padding: 12px 10px !important;
+    flex-grow: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
+  }
+  .category .card h3 {
+    font-size: 13px !important;
+    line-height: 1.2 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    margin-bottom: 8px !important;
+    color: #1a3c28 !important;
+  }
+  .category .card .price {
+    font-size: 13px !important;
+    margin-bottom: 12px !important;
+    color: #1a3c28 !important;
+  }
+  .category .card button {
+    padding: 8px 0 !important;
+    font-size: 11px !important;
+    background: #f7f9f8 !important;
+    color: #1a3c28 !important;
+    border: none !important;
+    width: 100% !important;
+  }
+}
+</style>
 </head>
 
 <body>
