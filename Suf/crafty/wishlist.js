@@ -195,8 +195,9 @@ document.addEventListener("DOMContentLoaded", () => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('active');
-        // Optional: stop observing once revealed so it doesn't fade out when scrolling up
-        observer.unobserve(entry.target); 
+      } else {
+        // Remove class when element leaves viewport so animation repeats
+        entry.target.classList.remove('active');
       }
     });
   }, revealOptions);
@@ -207,3 +208,26 @@ document.addEventListener("DOMContentLoaded", () => {
     revealObserver.observe(reveal);
   });
 });
+
+// =========================
+// MOBILE TOUCH POPUP FIX
+// =========================
+document.addEventListener("touchstart", (e) => {
+  const card = e.target.closest('.card');
+  if (card) {
+    card.classList.add('active-touch');
+  }
+}, {passive: true});
+
+document.addEventListener("touchend", (e) => {
+  const card = e.target.closest('.card');
+  if (card) {
+    // Remove it after a tiny delay so the visual pop stays during click routing
+    setTimeout(() => card.classList.remove('active-touch'), 150);
+  }
+}, {passive: true});
+
+document.addEventListener("touchcancel", (e) => {
+  const card = e.target.closest('.card');
+  if (card) card.classList.remove('active-touch');
+}, {passive: true});

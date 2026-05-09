@@ -395,7 +395,14 @@ nav a:hover {
   border: 1px solid rgba(26, 60, 40, 0.03);
 }
 
-.card:hover {
+@media (hover: hover) {
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 45px rgba(26, 60, 40, 0.15);
+    border-color: transparent;
+  }
+}
+.card.active-touch {
   transform: translateY(-10px);
   box-shadow: 0 20px 45px rgba(26, 60, 40, 0.15);
   border-color: transparent;
@@ -418,9 +425,10 @@ nav a:hover {
   display: block;
 }
 
-.card:hover img {
-  transform: scale(1.05);
+@media (hover: hover) {
+  .card:hover img { transform: scale(1.05); }
 }
+.card.active-touch img { transform: scale(1.05); }
 
 .card-badge {
   position: absolute;
@@ -487,7 +495,15 @@ nav a:hover {
   transform: translateY(10px);
 }
 
-.card:hover button {
+@media (hover: hover) {
+  .card:hover button {
+    opacity: 1;
+    transform: translateY(0);
+    background: var(--white);
+    color: var(--primary-color);
+  }
+}
+.card.active-touch button {
   opacity: 1;
   transform: translateY(0);
   background: var(--white);
