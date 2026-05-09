@@ -173,3 +173,37 @@ function inquireWishlistItem(name, price) {
 }
 
 document.addEventListener("DOMContentLoaded", initWishlist);
+
+// =========================
+// SCROLL REVEAL ANIMATION
+// =========================
+document.addEventListener("DOMContentLoaded", () => {
+  // 1. Dynamically add the .reveal class to elements we want to animate
+  const elementsToReveal = document.querySelectorAll('.card, .category h2, .footer-col, .product-img, .product-details');
+  elementsToReveal.forEach(el => {
+    el.classList.add('reveal');
+  });
+
+  // 2. Set up the IntersectionObserver
+  const revealOptions = {
+    root: null,
+    threshold: 0.15, // Trigger when 15% of the element is visible
+    rootMargin: "0px 0px -50px 0px" // Trigger slightly before the bottom
+  };
+
+  const revealObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+        // Optional: stop observing once revealed so it doesn't fade out when scrolling up
+        observer.unobserve(entry.target); 
+      }
+    });
+  }, revealOptions);
+
+  // 3. Start observing all .reveal elements
+  const reveals = document.querySelectorAll('.reveal');
+  reveals.forEach(reveal => {
+    revealObserver.observe(reveal);
+  });
+});

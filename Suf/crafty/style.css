@@ -945,3 +945,25 @@ footer {
     left: 10px;
   }
 }
+/* =========================
+   SCROLL ANIMATIONS
+   ========================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+  will-change: opacity, transform;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card.reveal:nth-child(2) { transition-delay: 0.1s; }
+.card.reveal:nth-child(3) { transition-delay: 0.2s; }
+.card.reveal:nth-child(4) { transition-delay: 0.3s; }
+.card.reveal:nth-child(5) { transition-delay: 0.4s; }
+
+.footer-col.reveal:nth-child(2) { transition-delay: 0.1s; }
+.footer-col.reveal:nth-child(3) { transition-delay: 0.2s; }
