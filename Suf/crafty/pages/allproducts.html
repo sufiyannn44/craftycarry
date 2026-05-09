@@ -125,202 +125,214 @@ if (!category) {
   } catch(e) {}
 }
 
+const categoryNames = {
+  "juteTote": "Jute",
+  "cottonCanvasJute": "Cotton canvas",
+  "hamperWindow": "Hamper window",
+  "bottleBag": "Bottle",
+  "kidsBag": "Kids",
+  "plainBag": "Plain jute & Cotton",
+  "weddingGifting": "Wedding gifting",
+  "birthdayGifting": "Fancy",
+  "potliDrawstring": "Drawstring"
+};
+
 if(category) {
-  // Format title: add space before capital letters and uppercase first letter
-  const formattedCategory = category.replace(/([A-Z])/g, ' $1').replace(/^./, function(str){ return str.toUpperCase(); });
-  document.getElementById("page-title").innerText = formattedCategory + " Bags";
+  // Format title: use lookup table, fallback to regex
+  const displayCategory = categoryNames[category] || category.replace(/([A-Z])/g, ' $1').replace(/^./, function(str){ return str.toUpperCase(); });
+  document.getElementById("page-title").innerText = displayCategory + " Bags";
 }
 
 // PRODUCTS
 const allProducts = {
   "juteTote": [
     {
-      "name": "jute bags 1",
+      "name": "Jute bag 1",
       "image": "jute bags/100.jpg",
       "price": "600"
     },
     {
-      "name": "jute bags 2",
+      "name": "Jute bag 2",
       "image": "jute bags/101.jpg",
       "price": "600"
     },
     {
-      "name": "jute bags 3",
+      "name": "Jute bag 3",
       "image": "jute bags/102.jpg",
       "price": "600"
     },
     {
-      "name": "jute bags 4",
+      "name": "Jute bag 4",
       "image": "jute bags/103.png",
       "price": "600"
     },
     {
-      "name": "jute bags 5",
+      "name": "Jute bag 5",
       "image": "jute bags/104.jpg",
       "price": "600"
     },
     {
-      "name": "jute bags 6",
+      "name": "Jute bag 6",
       "image": "jute bags/105.jpg",
       "price": "600"
     },
     {
-      "name": "jute bags 7",
+      "name": "Jute bag 7",
       "image": "jute bags/106.jpg",
       "price": "600"
     },
     {
-      "name": "jute bags 8",
+      "name": "Jute bag 8",
       "image": "jute bags/107.jpg",
       "price": "600"
     },
     {
-      "name": "jute bags 9",
+      "name": "Jute bag 9",
       "image": "jute bags/108.jpg",
       "price": "600"
     },
     {
-      "name": "jute bags 10",
+      "name": "Jute bag 10",
       "image": "jute bags/109.jpg",
       "price": "600"
     },
     {
-      "name": "jute bags 11",
+      "name": "Jute bag 11",
       "image": "jute bags/110.jpg",
       "price": "600"
     },
     {
-      "name": "jute bags 12",
+      "name": "Jute bag 12",
       "image": "jute bags/111.jpg",
       "price": "600"
     },
     {
-      "name": "jute bags 13",
+      "name": "Jute bag 13",
       "image": "jute bags/112.jpg",
       "price": "600"
     },
     {
-      "name": "jute bags 14",
+      "name": "Jute bag 14",
       "image": "jute bags/113.jpg",
       "price": "600"
     },
     {
-      "name": "jute bags 15",
+      "name": "Jute bag 15",
       "image": "jute bags/114.jpg",
       "price": "600"
     },
     {
-      "name": "jute bags 16",
+      "name": "Jute bag 16",
       "image": "jute bags/115.jpg",
       "price": "600"
     },
     {
-      "name": "jute bags 17",
+      "name": "Jute bag 17",
       "image": "jute bags/116.jpg",
       "price": "600"
     },
     {
-      "name": "jute bags 18",
+      "name": "Jute bag 18",
       "image": "jute bags/117.jpg",
       "price": "600"
     },
     {
-      "name": "jute bags 19",
+      "name": "Jute bag 19",
       "image": "jute bags/118.jpg",
       "price": "600"
     },
     {
-      "name": "jute bags 20",
+      "name": "Jute bag 20",
       "image": "jute bags/119.jpg",
       "price": "600"
     },
     {
-      "name": "jute bags 21",
+      "name": "Jute bag 21",
       "image": "jute bags/120.jpg",
       "price": "600"
     },
     {
-      "name": "jute bags 22",
+      "name": "Jute bag 22",
       "image": "jute bags/121.jpg",
       "price": "600"
     },
     {
-      "name": "jute bags 23",
+      "name": "Jute bag 23",
       "image": "jute bags/122.jpg",
       "price": "600"
     },
     {
-      "name": "jute bags 24",
+      "name": "Jute bag 24",
       "image": "jute bags/123.jpg",
       "price": "600"
     },
     {
-      "name": "jute bags 25",
+      "name": "Jute bag 25",
       "image": "jute bags/124.jpg",
       "price": "600"
     },
     {
-      "name": "jute bags 26",
+      "name": "Jute bag 26",
       "image": "jute bags/125.png",
       "price": "600"
     },
     {
-      "name": "jute bags 27",
+      "name": "Jute bag 27",
       "image": "jute bags/126.jpg",
       "price": "600"
     },
     {
-      "name": "jute bags 28",
+      "name": "Jute bag 28",
       "image": "jute bags/127.jpg",
       "price": "600"
     },
     {
-      "name": "jute bags 29",
+      "name": "Jute bag 29",
       "image": "jute bags/128.jpg",
       "price": "600"
     },
     {
-      "name": "jute bags 30",
+      "name": "Jute bag 30",
       "image": "jute bags/129.jpg",
       "price": "600"
     },
     {
-      "name": "jute bags 31",
+      "name": "Jute bag 31",
       "image": "jute bags/130.jpg",
       "price": "600"
     },
     {
-      "name": "jute bags 32",
+      "name": "Jute bag 32",
       "image": "jute bags/131.jpg",
       "price": "600"
     },
     {
-      "name": "jute bags 33",
+      "name": "Jute bag 33",
       "image": "jute bags/132.jpg",
       "price": "600"
     },
     {
-      "name": "jute bags 34",
+      "name": "Jute bag 34",
       "image": "jute bags/133.jpg",
       "price": "600"
     },
     {
-      "name": "jute bags 35",
+      "name": "Jute bag 35",
       "image": "jute bags/134.jpg",
       "price": "600"
     },
     {
-      "name": "jute bags 36",
+      "name": "Jute bag 36",
       "image": "jute bags/135.jpg",
       "price": "600"
     },
     {
-      "name": "jute bags 37",
+      "name": "Jute bag 37",
       "image": "jute bags/136.jpg",
       "price": "600"
     },
     {
-      "name": "jute bags 38",
+      "name": "Jute bag 38",
       "image": "jute bags/137.jpg",
       "price": "600"
     }
@@ -1319,212 +1331,212 @@ const allProducts = {
   ],
   "birthdayGifting": [
     {
-      "name": "birthday gifting 1",
+      "name": "Fancy gifting bag 1",
       "image": "birthday gifting/801.jpg",
       "price": "600"
     },
     {
-      "name": "birthday gifting 2",
+      "name": "Fancy gifting bag 2",
       "image": "birthday gifting/802.jpg",
       "price": "600"
     },
     {
-      "name": "birthday gifting 3",
+      "name": "Fancy gifting bag 3",
       "image": "birthday gifting/803.jpg",
       "price": "600"
     },
     {
-      "name": "birthday gifting 4",
+      "name": "Fancy gifting bag 4",
       "image": "birthday gifting/804.jpg",
       "price": "600"
     },
     {
-      "name": "birthday gifting 5",
+      "name": "Fancy gifting bag 5",
       "image": "birthday gifting/805.jpg",
       "price": "600"
     },
     {
-      "name": "birthday gifting 6",
+      "name": "Fancy gifting bag 6",
       "image": "birthday gifting/806.jpg",
       "price": "600"
     },
     {
-      "name": "birthday gifting 7",
+      "name": "Fancy gifting bag 7",
       "image": "birthday gifting/807.jpg",
       "price": "600"
     },
     {
-      "name": "birthday gifting 8",
+      "name": "Fancy gifting bag 8",
       "image": "birthday gifting/808.jpg",
       "price": "600"
     },
     {
-      "name": "birthday gifting 9",
+      "name": "Fancy gifting bag 9",
       "image": "birthday gifting/809.jpg",
       "price": "600"
     },
     {
-      "name": "birthday gifting 10",
+      "name": "Fancy gifting bag 10",
       "image": "birthday gifting/810.jpg",
       "price": "600"
     },
     {
-      "name": "birthday gifting 11",
+      "name": "Fancy gifting bag 11",
       "image": "birthday gifting/811.jpg",
       "price": "600"
     },
     {
-      "name": "birthday gifting 12",
+      "name": "Fancy gifting bag 12",
       "image": "birthday gifting/812.jpg",
       "price": "600"
     },
     {
-      "name": "birthday gifting 13",
+      "name": "Fancy gifting bag 13",
       "image": "birthday gifting/813.jpg",
       "price": "600"
     },
     {
-      "name": "birthday gifting 14",
+      "name": "Fancy gifting bag 14",
       "image": "birthday gifting/814.jpg",
       "price": "600"
     },
     {
-      "name": "birthday gifting 15",
+      "name": "Fancy gifting bag 15",
       "image": "birthday gifting/815.jpg",
       "price": "600"
     },
     {
-      "name": "birthday gifting 16",
+      "name": "Fancy gifting bag 16",
       "image": "birthday gifting/816.jpg",
       "price": "600"
     },
     {
-      "name": "birthday gifting 17",
+      "name": "Fancy gifting bag 17",
       "image": "birthday gifting/817.jpg",
       "price": "600"
     },
     {
-      "name": "birthday gifting 18",
+      "name": "Fancy gifting bag 18",
       "image": "birthday gifting/818.jpg",
       "price": "600"
     },
     {
-      "name": "birthday gifting 19",
+      "name": "Fancy gifting bag 19",
       "image": "birthday gifting/819.jpg",
       "price": "600"
     },
     {
-      "name": "birthday gifting 20",
+      "name": "Fancy gifting bag 20",
       "image": "birthday gifting/820.jpg",
       "price": "600"
     },
     {
-      "name": "birthday gifting 21",
+      "name": "Fancy gifting bag 21",
       "image": "birthday gifting/821.jpg",
       "price": "600"
     },
     {
-      "name": "birthday gifting 22",
+      "name": "Fancy gifting bag 22",
       "image": "birthday gifting/822.jpg",
       "price": "600"
     },
     {
-      "name": "birthday gifting 23",
+      "name": "Fancy gifting bag 23",
       "image": "birthday gifting/823.jpg",
       "price": "600"
     },
     {
-      "name": "birthday gifting 24",
+      "name": "Fancy gifting bag 24",
       "image": "birthday gifting/824.jpg",
       "price": "600"
     },
     {
-      "name": "birthday gifting 25",
+      "name": "Fancy gifting bag 25",
       "image": "birthday gifting/825.jpg",
       "price": "600"
     },
     {
-      "name": "birthday gifting 26",
+      "name": "Fancy gifting bag 26",
       "image": "birthday gifting/826.jpg",
       "price": "600"
     },
     {
-      "name": "birthday gifting 27",
+      "name": "Fancy gifting bag 27",
       "image": "birthday gifting/827.jpg",
       "price": "600"
     },
     {
-      "name": "birthday gifting 28",
+      "name": "Fancy gifting bag 28",
       "image": "birthday gifting/828.jpg",
       "price": "600"
     },
     {
-      "name": "birthday gifting 29",
+      "name": "Fancy gifting bag 29",
       "image": "birthday gifting/829.jpg",
       "price": "600"
     },
     {
-      "name": "birthday gifting 30",
+      "name": "Fancy gifting bag 30",
       "image": "birthday gifting/830.jpg",
       "price": "600"
     },
     {
-      "name": "birthday gifting 31",
+      "name": "Fancy gifting bag 31",
       "image": "birthday gifting/831.jpg",
       "price": "600"
     },
     {
-      "name": "birthday gifting 32",
+      "name": "Fancy gifting bag 32",
       "image": "birthday gifting/832.jpg",
       "price": "600"
     },
     {
-      "name": "birthday gifting 33",
+      "name": "Fancy gifting bag 33",
       "image": "birthday gifting/833.jpg",
       "price": "600"
     },
     {
-      "name": "birthday gifting 34",
+      "name": "Fancy gifting bag 34",
       "image": "birthday gifting/834.jpg",
       "price": "600"
     },
     {
-      "name": "birthday gifting 35",
+      "name": "Fancy gifting bag 35",
       "image": "birthday gifting/835.jpg",
       "price": "600"
     },
     {
-      "name": "birthday gifting 36",
+      "name": "Fancy gifting bag 36",
       "image": "birthday gifting/836.jpg",
       "price": "600"
     },
     {
-      "name": "birthday gifting 37",
+      "name": "Fancy gifting bag 37",
       "image": "birthday gifting/837.jpg",
       "price": "600"
     },
     {
-      "name": "birthday gifting 38",
+      "name": "Fancy gifting bag 38",
       "image": "birthday gifting/838.jpg",
       "price": "600"
     },
     {
-      "name": "birthday gifting 39",
+      "name": "Fancy gifting bag 39",
       "image": "birthday gifting/839.jpg",
       "price": "600"
     },
     {
-      "name": "birthday gifting 40",
+      "name": "Fancy gifting bag 40",
       "image": "birthday gifting/840.jpg",
       "price": "600"
     },
     {
-      "name": "birthday gifting 41",
+      "name": "Fancy gifting bag 41",
       "image": "birthday gifting/841.jpg",
       "price": "600"
     },
     {
-      "name": "birthday gifting 42",
+      "name": "Fancy gifting bag 42",
       "image": "birthday gifting/842.jpg",
       "price": "600"
     }
@@ -1613,7 +1625,8 @@ function openProduct(name, image, price){
   window.location.href = `product.html?name=${encodeURIComponent(name)}&image=${encodeURIComponent(image)}&price=${encodeURIComponent(price)}`;
 }
 </script>
-<!-- FOOTER -->
+
+<!-- FOOTER -->
 <footer>
   <div class="footer-content">
     <div class="footer-col">
@@ -1627,15 +1640,15 @@ function openProduct(name, image, price){
     </div>
     <div class="footer-col">
       <h4>Quick Links</h4>
-      <p><a href="../index.html#jute-tote">Jute tote bag</a></p>
-      <p><a href="../index.html#cotton-canvas-jute">Cotton canvas jute bag</a></p>
+      <p><a href="../index.html#jute-tote">Jute bag</a></p>
+      <p><a href="../index.html#cotton-canvas-jute">Cotton canvas bag</a></p>
       <p><a href="../index.html#hamper-window">Hamper window bag</a></p>
       <p><a href="../index.html#bottle-bag">Bottle bag</a></p>
       <p><a href="../index.html#kids-bag">Kids bag</a></p>
-      <p><a href="../index.html#plain-bag">Plain bag</a></p>
+      <p><a href="../index.html#plain-bag">Plain jute & Cotton bag</a></p>
       <p><a href="../index.html#wedding-gifting">Wedding gifting bag</a></p>
-      <p><a href="../index.html#birthday-gifting">Birthday gifting bag</a></p>
-      <p><a href="../index.html#potli-drawstring">Potli and drawstring bag</a></p>
+      <p><a href="../index.html#birthday-gifting">Fancy gifting bag</a></p>
+      <p><a href="../index.html#potli-drawstring">Drawstring bag</a></p>
     </div>
     <div class="footer-col">
       <h4>Contact Us</h4>
