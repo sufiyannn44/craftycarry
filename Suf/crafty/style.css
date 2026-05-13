@@ -183,6 +183,7 @@ nav a:hover {
   padding: 0 5%;
   z-index: 2;
   animation: slideUp 1s ease-out 1.5s both;
+  pointer-events: none;
 }
 
 .overlay h2 {
@@ -228,6 +229,7 @@ nav a:hover {
   transition: var(--transition);
   text-decoration: none;
   display: inline-block;
+  pointer-events: auto;
 }
 
 .overlay .btn-shop:hover {
