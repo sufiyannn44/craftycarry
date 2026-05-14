@@ -1600,15 +1600,12 @@ const products = allProducts[category] || allProducts['juteTote']; // fallback t
 // CREATE CARDS
 for(let i=0; i<products.length; i++){
   const product = products[i];
-  // Add some visual flair: Bestseller / New tags randomly
-  const badgeHtml = (i % 5 === 0) ? `<div class="card-badge">Bestseller</div>` : ((i % 7 === 0) ? `<div class="card-badge" style="background:var(--secondary-color)">New</div>` : '');
 
   // Fix image path for display in /pages/ directory
   const displayImage = "../" + product.image;
 
   container.innerHTML += `
     <div class="card" onclick="openProduct('${product.name}', '${product.image}', '${product.price}')">
-      ${badgeHtml}
       <div class="img-wrapper">
         <img src="${displayImage}" alt="${product.name}" onerror="this.src='../images/1.jpg'">
       </div>
