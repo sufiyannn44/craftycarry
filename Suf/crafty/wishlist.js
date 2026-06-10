@@ -15,7 +15,7 @@ function initWishlist() {
 }
 
 // Toggle a product in the wishlist
-function toggleWishlist(event, name, image, price) {
+function toggleWishlist(event, name, image, price, size) {
   event.stopPropagation(); // Prevent opening product detail page
   
   const index = wishlist.findIndex(item => item.name === name);
@@ -25,7 +25,7 @@ function toggleWishlist(event, name, image, price) {
     wishlist.splice(index, 1);
   } else {
     // Add if not exists
-    wishlist.push({ name, image, price });
+    wishlist.push({ name, image, price, size: size || '' });
   }
   
   localStorage.setItem('craftyWishlist', JSON.stringify(wishlist));
@@ -65,13 +65,14 @@ function updateAllHeartIcons() {
     const onclickStr = card.getAttribute('onclick');
     if (!onclickStr) return;
     
-    // e.g. openProduct('Basic Potli', 'images/1.jpg', '200')
-    const match = onclickStr.match(/openProduct\(\s*'([^']+)'\s*,\s*'([^']+)'\s*,\s*'([^']+)'\s*\)/);
+    // e.g. openProduct('Basic Potli', 'images/1.jpg', '200', 'Size')
+    const match = onclickStr.match(/openProduct\(\s*'([^']+)'\s*,\s*'([^']+)'\s*,\s*'([^']+)'(?:\s*,\s*'([^']*)')?\s*\)/);
     if (!match) return;
     
     const name = match[1];
     const image = match[2];
     const price = match[3];
+    const size = match[4] || '';
     
     const imgWrapper = card.querySelector('.img-wrapper');
     if (!imgWrapper) return;
@@ -82,7 +83,7 @@ function updateAllHeartIcons() {
       btn = document.createElement('div');
       btn.className = 'like-btn';
       btn.setAttribute('data-name', name);
-      btn.onclick = (e) => toggleWishlist(e, name, image, price);
+      btn.onclick = (e) => toggleWishlist(e, name, image, price, size);
       btn.innerHTML = '<i class="far fa-heart"></i>';
       imgWrapper.appendChild(btn);
     }
@@ -150,15 +151,23 @@ function renderWishlistDrawer() {
       imgPath = imgPath.replace('../', '');
     }
     
+    const itemSize = item.size || '';
+    let displaySize = itemSize;
+    if (itemSize && /^\d+(\.\d+)?\s*x\s*\d+(\.\d+)?(\s*x\s*\d+(\.\d+)?)?$/.test(itemSize.trim())) {
+      displaySize = itemSize.trim().split(/\s*x\s*/).map(dim => dim + '"').join(' x ');
+    }
+    const sizeDisplay = itemSize ? `<p style="font-size: 11px; color: var(--gray-text); margin: 2px 0 6px;"><i class="fas fa-ruler-combined"></i> Size: ${displaySize}</p>` : '';
+    
     html += `
       <div class="wishlist-item">
-        <img src="${imgPath}" alt="${item.name}" onerror="this.src='${pathPrefix}images/1.jpg'" onclick="openProduct('${item.name}', '${item.image}', '${item.price}')" style="cursor: pointer;">
+        <img src="${imgPath}" alt="${item.name}" onerror="this.src='${pathPrefix}images/1.jpg'" onclick="openProduct('${item.name}', '${item.image}', '${item.price}', '${itemSize}')" style="cursor: pointer;">
         <div class="wishlist-item-details">
-          <h4 onclick="openProduct('${item.name}', '${item.image}', '${item.price}')" style="cursor: pointer;">${item.name}</h4>
+          <h4 onclick="openProduct('${item.name}', '${item.image}', '${item.price}', '${itemSize}')" style="cursor: pointer;">${item.name}</h4>
+          ${sizeDisplay}
           <p class="price">₹${item.price}</p>
           <div class="wishlist-actions">
             <button class="remove-btn" onclick="removeWishlistItem('${item.name}')"><i class="fas fa-trash"></i></button>
-            <button class="inquire-btn" onclick="inquireWishlistItem('${item.name}', '${item.price}')"><i class="fab fa-whatsapp"></i></button>
+            <button class="inquire-btn" onclick="inquireWishlistItem('${item.name}', '${item.price}', '${itemSize}')"><i class="fab fa-whatsapp"></i></button>
           </div>
         </div>
       </div>
@@ -167,8 +176,9 @@ function renderWishlistDrawer() {
   content.innerHTML = html;
 }
 
-function inquireWishlistItem(name, price) {
-  const msg = `Hello, I want to inquire about ${name} (₹${price}) from my wishlist.`;
+function inquireWishlistItem(name, price, size) {
+  const sizeMsg = size ? ` (Size: ${size})` : '';
+  const msg = `Hello, I want to inquire about ${name}${sizeMsg} (₹${price}) from my wishlist.`;
   window.open(`https://wa.me/919315748789?text=${encodeURIComponent(msg)}`);
 }
 

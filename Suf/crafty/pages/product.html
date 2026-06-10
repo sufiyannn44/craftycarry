@@ -334,6 +334,14 @@ body {
       </span>
     </div>
 
+    <!-- SIZE DISPLAY -->
+    <div id="size-container" style="margin-bottom: 25px; display: none; align-items: center; gap: 10px;">
+      <span style="font-weight: 500; color: var(--primary-color); font-size: 14px; text-transform: uppercase; letter-spacing: 1px;">Dimensions:</span>
+      <span class="tag" id="size-val" style="background: var(--gray-light); color: var(--primary-color); border: 1px solid var(--primary-color); border-radius: 4px; font-size: 14px; font-weight: 600; padding: 4px 10px; display: inline-block;">
+        -
+      </span>
+    </div>
+
     <div class="desc">
       Luxury handcrafted bag designed with premium quality fabric
       and elegant finishing. Perfect for gifting, weddings,
@@ -385,9 +393,33 @@ const p = new URLSearchParams(window.location.search);
 const name = p.get("name");
 const image = p.get("image");
 const price = p.get("price");
+const size = p.get("size");
 
 if (name) document.getElementById("name").innerText = name;
-if (price) document.getElementById("price").innerText = price;
+
+if (price && price !== "undefined" && price !== "null" && price !== "") {
+  document.getElementById("price").innerText = price;
+} else {
+  const priceContainer = document.querySelector('.price-container');
+  if (priceContainer) {
+    priceContainer.innerHTML = `<div class="price" style="font-size: 22px; font-weight: 500; color: var(--gray-text);">Price on Request</div>`;
+  }
+}
+
+if (size && size !== "undefined" && size !== "null" && size !== "") {
+  let formattedSize = size;
+  const trimmedSize = size.trim();
+  if (/^\d+(\.\d+)?\s*x\s*\d+(\.\d+)?(\s*x\s*\d+(\.\d+)?)?$/.test(trimmedSize)) {
+    formattedSize = trimmedSize.split(/\s*x\s*/).map(dim => dim + '"').join(' x ');
+  } else if (/^\d+(\.\d+)?$/.test(trimmedSize)) {
+    formattedSize = trimmedSize + '"';
+  }
+  document.getElementById("size-val").innerText = formattedSize;
+  document.getElementById("size-container").style.display = "flex";
+} else {
+  document.getElementById("size-container").style.display = "none";
+}
+
 if (image) {
   document.getElementById("img").src = "../" + image;
   
@@ -398,7 +430,7 @@ if (image) {
     const btn = document.createElement('div');
     btn.className = 'like-btn';
     btn.setAttribute('data-name', name);
-    btn.onclick = (e) => toggleWishlist(e, name, image, price);
+    btn.onclick = (e) => toggleWishlist(e, name, image, price, size || 'Standard');
     btn.innerHTML = '<i class="far fa-heart"></i>';
     imgWrapper.appendChild(btn);
   }
@@ -406,7 +438,8 @@ if (image) {
 
 // WhatsApp
 function orderWhatsApp(){
-  const msg = `Hello, I want to inquire about ${name} (₹${price})`;
+  const sizeText = size ? ` (Size: ${size})` : '';
+  const msg = `Hello, I want to inquire about ${name}${sizeText} (₹${price}/piece)`;
   window.open(`https://wa.me/919315748789?text=${encodeURIComponent(msg)}`);
 }
 </script>

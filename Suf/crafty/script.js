@@ -2,9 +2,9 @@
 // OPEN SINGLE PRODUCT PAGE
 // =========================
 
-function openProduct(name, image, price){
+function openProduct(name, image, price, size){
   // Encode URI to avoid spaces/newlines breaking the URL
-  const query = `name=${encodeURIComponent(name)}&image=${encodeURIComponent(image)}&price=${encodeURIComponent(price)}`;
+  const query = `name=${encodeURIComponent(name)}&image=${encodeURIComponent(image)}&price=${encodeURIComponent(price)}&size=${encodeURIComponent(size || '')}`;
   const isPagesDir = window.location.pathname.includes('/pages/');
   const path = isPagesDir ? `product.html` : `pages/product.html`;
   window.location.href = `${path}?${query}`;
